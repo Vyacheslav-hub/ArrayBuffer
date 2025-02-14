@@ -9,8 +9,8 @@ describe('Magician attack calculations', () => {
     [5, false, 60],
 
     [2, true, 85],
-    [3, true, 75],
-    [4, true, 65],
+    [3, true, 72],
+    [4, true, 60],
     [5, true, 48],
   ])('Magician attack at distance %i, stoned: %s', (distance, stoned, expected) => {
     const magician = new Magician(100);
@@ -35,5 +35,12 @@ describe('Magician attack calculations', () => {
     expect(() => {
       magician.distance = 0;
     }).toThrow('Расстояние должно быть не менее 1');
+  });
+
+  test('Magician attack does not drop below zero', () => {
+    const magician = new Magician(1);
+    magician.distance = 10;
+    magician.stoned = true;
+    expect(magician.attack).toBe(0);
   });
 });
