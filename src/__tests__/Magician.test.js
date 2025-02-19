@@ -9,9 +9,9 @@ describe('Magician attack calculations', () => {
     [5, false, 60],
 
     [2, true, 85],
-    [3, true, 72],
+    [3, true, 72.1],
     [4, true, 60],
-    [5, true, 48],
+    [5, true, 48.4],
   ])('Magician attack at distance %i, stoned: %s', (distance, stoned, expected) => {
     const magician = new Magician(100);
     magician.distance = distance;

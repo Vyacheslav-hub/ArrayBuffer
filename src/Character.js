@@ -17,9 +17,9 @@ export default class Character {
     let attackPower = this.attackValue * (1 - (this.distanceValue - 1) * 0.1);
 
     if (this.stonedValue) {
-      attackPower -= Math.log2(this.distanceValue) * 5;
+      attackPower -= (Math.log2(this.distanceValue) * 5);
     }
-    return attackPower > 0 ? Math.round(attackPower) : 0;
+    return attackPower > 0 ? Number(attackPower.toFixed(1)) : 0;
   }
 
   set attack(value) {
